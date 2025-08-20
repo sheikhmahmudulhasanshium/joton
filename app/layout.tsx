@@ -9,24 +9,24 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | JOTON',
-    default: 'JOTON | Healthcare with hope.',
+    template: "%s | JOTON",
+    default: "JOTON | Healthcare with hope.",
   },
-  description: 'A modern Hospital Management System for seamless operations.',
-  manifest: '/site.webmanifest',
+  description: "A modern Hospital Management System for seamless operations.",
+  manifest: "/site.webmanifest",
   appleWebApp: {
-    title: 'JOTON',
+    title: "JOTON",
   },
   icons: {
-    shortcut: '/favicon.ico',
+    shortcut: "/favicon.ico",
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
+    google: process.env.GOOGLE_SITE_VERIFICATION, // <-- HTML Tag verification
   },
 };
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* --- Google Tag Manager - Head Snippet --- */}
+        {/* ✅ Google Tag Manager - Head Snippet (for tracking only, NOT verification) */}
         {gtmId && (
           <script
             dangerouslySetInnerHTML={{
@@ -49,10 +49,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
 
-        {/* --- Google Analytics Snippet --- */}
+        {/* ✅ Google Analytics */}
         {gaId && (
           <>
-            <Script strategy="beforeInteractive" async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <Script
+              strategy="beforeInteractive"
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
             <Script
               id="ga-inline-script"
               strategy="beforeInteractive"
@@ -69,14 +73,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body suppressHydrationWarning>
-        {/* --- Google Tag Manager - NoScript Body Snippet --- */}
+        {/* ✅ GTM <noscript> fallback */}
         {gtmId && (
           <noscript>
             <iframe
               src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
               height="0"
               width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
+              style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
         )}
