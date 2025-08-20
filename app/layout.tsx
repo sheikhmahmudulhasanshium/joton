@@ -37,6 +37,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+         {/* --- Google Tag Manager - Head Snippet --- */}
+        {/* This is the most direct implementation for GTM. It works for tracking, even if the verification bot fails. */}
+       
+        {gtmId && (
+          <script
+            id="google-tag-manager-head-native"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${gtmId}');
+              `,
+            }}
+          />
+        )}
         {/* --- Google Analytics Snippet --- */}
         {/* This implementation pattern successfully passed Google's verification. Do not change it. */}
         {gaId && (
@@ -57,22 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
 
-        {/* --- Google Tag Manager - Head Snippet --- */}
-        {/* This is the most direct implementation for GTM. It works for tracking, even if the verification bot fails. */}
-        {gtmId && (
-          <script
-            id="google-tag-manager-head-native"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${gtmId}');
-              `,
-            }}
-          />
-        )}
+        
       </head>
 
       <body suppressHydrationWarning>
