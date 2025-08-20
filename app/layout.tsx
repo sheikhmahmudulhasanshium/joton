@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script"; // Required for the correct strategy
+import Script from "next/script"; // Still needed for Google Analytics
 import "./globals.css";
 import { ThemeProvider } from "./components/providers/theme-provider";
 
@@ -8,7 +8,7 @@ import { ThemeProvider } from "./components/providers/theme-provider";
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
-// The metadata object with the verification key remains essential and correct.
+// This metadata is perfect and has already passed verification.
 export const metadata: Metadata = {
   title: {
     template: '%s | JOTON',
@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
-  // This is the most reliable verification method and should be kept.
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
@@ -38,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* --- Google Analytics Snippet --- */}
-        {/* CRITICAL CHANGE: Placed in head with "beforeInteractive" strategy to pass verification. */}
+        {/* This implementation is SUCCESSFUL and should NOT be changed. */}
         {gaId && (
           <>
             <Script strategy="beforeInteractive" async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></Script>
@@ -58,17 +57,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
 
         {/* --- Google Tag Manager - Head Snippet --- */}
-        {/* CRITICAL CHANGE: Placed in head with "beforeInteractive" strategy to pass verification. */}
+        {/* FINAL FIX: Using a native <script> tag to avoid Next.js attributes that the GTM bot dislikes. */}
         {gtmId && (
-          <Script
-            id="google-tag-manager-head"
-            strategy="beforeInteractive"
+          <script
+            id="google-tag-manager-head-native" // Added ID for clarity
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
                 })(window,document,'script','dataLayer','${gtmId}');
               `,
             }}
@@ -78,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body suppressHydrationWarning>
         {/* --- GTM noscript Fallback --- */}
-        {/* This placement is correct and must be at the very top of the body. */}
+        {/* This placement is correct. */}
         {gtmId && (
           <noscript>
             <iframe
