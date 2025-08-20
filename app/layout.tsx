@@ -37,6 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Site Verification */}
+        {process.env.GOOGLE_SITE_VERIFICATION && (
+          <meta
+            name="google-site-verification"
+            content={process.env.GOOGLE_SITE_VERIFICATION}
+          />
+        )}
+
         {/* Google Analytics */}
         {gaId && (
           <>
