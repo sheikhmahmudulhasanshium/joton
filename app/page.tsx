@@ -11,9 +11,9 @@ const inter = Inter({ subsets: ['latin'] });
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Home', // This string will now correctly fill the %s in the layout's template
-    description: "LIORA is a comprehensive Hospital Management System designed to streamline healthcare operations. Manage appointments, user roles, and inventory with dynamic dashboards and robust analytics.",
+    description: "JOTON is a comprehensive Hospital Management System designed to streamline healthcare operations. Manage appointments, user roles, and inventory with dynamic dashboards and robust analytics.",
     openGraph: {
-      title: "LIORA: Healthcare with hope.",
+      title: "JOTON: Healthcare with hope.",
       description: "A modern HMS for managing appointments, patient data, and analytics.",
     },
   };
@@ -23,11 +23,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function HomePage() {
   return (
     <BasicPageProvider fontClassName={inter.className}>
-      <h1>Welcome to LIORA</h1>
+      <h1>Welcome to JOTON</h1>
       <h2>Healthcare with hope.</h2>
       <p>
         This is the main landing page for the Hospital Management System.
       </p>
+      
     </BasicPageProvider>
   );
 }

@@ -7,13 +7,13 @@ import Analytics from "./components/seo/analytics";
 // Your metadata object remains the same. It is correct and handled by Next.js.
 export const metadata: Metadata = {
   title: {
-    template: '%s | LIORA',
-    default: 'LIORA | Healthcare with hope.',
+    template: '%s | JOTON',
+    default: 'JOTON | Healthcare with hope.',
   },
   description: 'A modern Hospital Management System for seamless operations.',
   manifest: '/site.webmanifest',
   appleWebApp: {
-    title: 'LIORA',
+    title: 'JOTON',
   },
   icons: {
     shortcut: '/favicon.ico',
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     // The suppressHydrationWarning is on <html> as next-themes modifies its class
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         {/*
           The ThemeProvider wraps your entire application, enabling theme switching.
           It's a Client Component wrapping Server Component children. This is the correct pattern.
