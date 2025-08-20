@@ -1,0 +1,28 @@
+HMS
+|_logo design
+|_backend
+|_frontend
+
+Pages
+|_landing
+|_profile
+|_authorization
+|__users
+|_admin,hr,management, doctor, patient, employees, donor,owners, board of trust, intern, delivery, insurance, lawyer,
+|_dashboard
+|_settings
+|_announcement
+|_notifications
+|_calender
+|_todos
+|blood bank
+| pharmacy
+|_inventory
+|_offers|_faqs
+|_t&c
+|_p&p
+|_payment portal
+|_Departments
+|_search
+|_analytics
+lets create a proposal first step by step plans to complete the project. I wanna create the apps using Nextjs, typescript, mongodb, nestjs, google console oauth, nodemailer,etc. Initially I wanna upload on vercel both end. bothend will be 2 seperaaaaaate project and uploaded differently. Since I am making demo project there should not be any service that requires credit card credentials, Skip evey paid option. Also there will be 3 tiers of website starter,standard,advanced tier with their estimated features, time, costs, number of revisions, deliverables.
