@@ -1,4 +1,5 @@
-// app/_components/BasicPageProvider.tsx
+// app/components/providers/basic-page-provider.tsx
+
 'use client'; // This component now handles client-side state and hooks.
 
 import React, { useState, useEffect } from 'react';

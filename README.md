@@ -1,10 +1,10 @@
 # Joton (যত্ন)
 
-### Illuminating Paths to Well-being
+### Healthcare with hope.
 
 [![Vercel Deployment](https://vercel.com/button)](https://joton.vercel.app/)
 
-**Joton** is a comprehensive, full-stack Hospital Management System (HMS) designed as a portfolio piece to showcase modern web development practices. The name "Joton" (যত্ন) means **"Care"** in Bangla, reflecting the project's core mission to provide a seamless, intuitive, and hopeful healthcare management experience.
+**Joton** is a comprehensive, full-stack Hospital Management System (HMS) designed as a portfolio piece to showcase modern web development practices. The name "Joton" (যতন) means **"Care"** in Bangla, reflecting the project's core mission to provide a seamless, intuitive, and hopeful healthcare management experience.
 
 This application is built with a modern architecture, featuring a Next.js frontend and a NestJS backend, and is designed to be scalable, maintainable, and user-friendly.
 
