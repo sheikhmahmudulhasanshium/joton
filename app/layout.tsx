@@ -1,14 +1,15 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script"; // Still needed for Google Analytics
+import Script from "next/script"; // Required for the successful Google Analytics implementation
 import "./globals.css";
 import { ThemeProvider } from "./components/providers/theme-provider";
 
 // --- ENVIRONMENT VARIABLES ---
+// These are read from your .env.local file
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
-// This metadata is perfect and has already passed verification.
+// This metadata object is perfect. It includes the successful HTML tag verification method.
 export const metadata: Metadata = {
   title: {
     template: '%s | JOTON',
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* --- Google Analytics Snippet --- */}
-        {/* This implementation is SUCCESSFUL and should NOT be changed. */}
+        {/* This implementation pattern successfully passed Google's verification. Do not change it. */}
         {gaId && (
           <>
             <Script strategy="beforeInteractive" async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></Script>
@@ -57,10 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
 
         {/* --- Google Tag Manager - Head Snippet --- */}
-        {/* FINAL FIX: Using a native <script> tag to avoid Next.js attributes that the GTM bot dislikes. */}
+        {/* This is the most direct implementation for GTM. It works for tracking, even if the verification bot fails. */}
         {gtmId && (
           <script
-            id="google-tag-manager-head-native" // Added ID for clarity
+            id="google-tag-manager-head-native"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -76,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       <body suppressHydrationWarning>
         {/* --- GTM noscript Fallback --- */}
-        {/* This placement is correct. */}
+        {/* This must be the first element inside the <body> tag. This placement is correct. */}
         {gtmId && (
           <noscript>
             <iframe
