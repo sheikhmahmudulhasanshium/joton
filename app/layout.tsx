@@ -34,10 +34,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* THIS IS THE KEY CHANGE */}
         {gtmId && (
           <Script
             id="gtm-head"
-            strategy="afterInteractive"
+            strategy="beforeInteractive" // Changed from afterInteractive
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
