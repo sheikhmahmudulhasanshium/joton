@@ -1,11 +1,13 @@
 // app/layout.tsx
 
 import type { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+// --- STEP 1: ONLY import GoogleTagManager ---
+import { GoogleTagManager } from '@next/third-parties/google';
 import "./globals.css";
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-const gaId= process.env.NEXT_PUBLIC_GA_ID;
+// --- STEP 2: The gaId is NOT needed here ---
+
 export const metadata: Metadata = {
   title: {
     default: 'JOTON | Healthcare with hope.',
@@ -36,13 +38,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
+        {/* The GTM component will automatically add the necessary script here */}
       </head>
       <body suppressHydrationWarning>
-
         {children}
-        {gaId && <GoogleAnalytics gaId={gaId} />}
-
+        
+        {/* --- STEP 3: Place ONLY the GTM component here, before the closing </body> tag --- */}
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
       </body>
     </html>
   );
