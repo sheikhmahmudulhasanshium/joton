@@ -36,11 +36,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* The component handles adding the GTM script here */}
+        {gtmId && <GoogleTagManager gtmId={gtmId} />}
       </head>
       <body suppressHydrationWarning>
+
         {children}
-        {gtmId && <GoogleTagManager gtmId={gtmId} />}
         {gaId && <GoogleAnalytics gaId={gaId} />}
 
       </body>
