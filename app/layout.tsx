@@ -1,5 +1,6 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
@@ -34,11 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* THIS IS THE KEY CHANGE */}
+        {/* Google Tag Manager (HEAD) - Using standard <script> tag */}
         {gtmId && (
-          <Script
-            id="gtm-head"
-            strategy="beforeInteractive" // Changed from afterInteractive
+          <script
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -52,6 +51,7 @@ export default function RootLayout({
         )}
       </head>
       <body suppressHydrationWarning>
+        {/* Google Tag Manager (BODY) - Using standard <noscript> tag */}
         {gtmId && (
           <noscript>
             <iframe
