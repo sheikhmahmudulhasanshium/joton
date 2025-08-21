@@ -3,32 +3,49 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import BasicPageProvider from './components/providers/basic-page-provider';
+import BasicBodyProvider from './components/providers/basic-body-provider';
+import { Header } from '@/app/components/common/header';
+import Footer from '@/app/components/common/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// --- USE generateMetadata FUNCTION INSTEAD OF STATIC OBJECT ---
-// This ensures Next.js correctly processes and merges metadata with the layout.
 export async function generateMetadata(): Promise<Metadata> {
+  // --- CHANGE: Updated title and description for broader scope ---
+  const title = 'JOTON: Modern Healthcare Management System';
+  const description = "JOTON is a comprehensive Healthcare Management System (HMS) designed to streamline operations for hospitals, clinics, and medical practices. Manage appointments, user roles, and inventory with dynamic dashboards.";
+
   return {
-    title: 'Home', // This string will now correctly fill the %s in the layout's template
-    description: "JOTON is a comprehensive Hospital Management System designed to streamline healthcare operations. Manage appointments, user roles, and inventory with dynamic dashboards and robust analytics.",
+    title: 'Home', 
+    description: description,
+    
     openGraph: {
-      title: "JOTON: Healthcare with hope.",
-      description: "A modern HMS for managing appointments, patient data, and analytics.",
+      title: title,
+      description: description,
+      images: [
+        {
+          url: '/png/full-lockup-with-tagline.png',
+          width: 852,
+          height: 300,
+          alt: 'JOTON - A Modern Healthcare Management System',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: title,
+      description: description,
+      images: ['/png/full-lockup-with-tagline.png'],
+      creator: '@YourTwitterHandle',
     },
   };
 }
 
-// The rest of your component remains the same
 export default function HomePage() {
   return (
     <BasicPageProvider fontClassName={inter.className}>
-      <h1>Welcome to JOTON</h1>
-      <h2>Healthcare with hope.</h2>
-      <p>
-        This is the main landing page for the Hospital Management System.
-      </p>
-      
+      <BasicBodyProvider header={<Header variant='landing'/>} footer={<Footer/>}>
+      body
+      </BasicBodyProvider>
     </BasicPageProvider>
   );
 }

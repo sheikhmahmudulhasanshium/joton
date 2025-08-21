@@ -12,7 +12,7 @@ const useUserSettings = () => {
   // In a real app, this would check localStorage, a cookie, or an API.
   const userPreferredFont = 'Lora'; // e.g., 'Inter', 'Lora', 'Roboto'
   const userPreferredFontSize = '16px'; // e.g., '14px', '16px', '18px'
-  const userPreferredColor = '#111827'; // e.g., a dark text color
+  const userPreferredColor = '#888888'; // e.g., a dark text color
 
   return { userPreferredFont, userPreferredFontSize, userPreferredColor };
 };
