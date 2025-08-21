@@ -1,11 +1,8 @@
-// app/layout.tsx
-
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
   title: {
@@ -37,42 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Site Verification */}
-        {process.env.GOOGLE_SITE_VERIFICATION && (
-          <meta
-            name="google-site-verification"
-            content={process.env.GOOGLE_SITE_VERIFICATION}
-          />
-        )}
-
-        {/* Google Analytics */}
-        {gaId && (
-          <>
-            <Script
-              strategy="beforeInteractive"
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-            />
-            <Script
-              id="ga-init"
-              strategy="beforeInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${gaId}');
-                `,
-              }}
-            />
-          </>
-        )}
-
-        {/* Google Tag Manager (HEAD) */}
         {gtmId && (
           <Script
             id="gtm-head"
-            strategy="beforeInteractive"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -86,7 +51,6 @@ export default function RootLayout({
         )}
       </head>
       <body suppressHydrationWarning>
-        {/* Google Tag Manager (BODY) */}
         {gtmId && (
           <noscript>
             <iframe
