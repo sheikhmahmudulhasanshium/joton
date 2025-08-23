@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { footerLinks, contactInfo } from '@/lib/menu';
-import { Facebook, Twitter, Linkedin, Instagram, Phone } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
     return ( 

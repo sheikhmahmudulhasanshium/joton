@@ -2,10 +2,11 @@
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import BasicPageProvider from './components/providers/basic-page-provider';
-import BasicBodyProvider from './components/providers/basic-body-provider';
+import BasicPageProvider from '../components/providers/basic-page-provider';
+import BasicBodyProvider from '../components/providers/basic-body-provider';
 import { Header } from '@/app/components/common/header';
 import Footer from '@/app/components/common/footer';
+import Body from './body';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: '/png/full-lockup-with-tagline.png',
           width: 852,
           height: 300,
-          alt: 'JOTON - A Modern Healthcare Management System',
+          alt: 'JOTON -  Healthcare with Hope',
         },
       ],
     },
@@ -44,7 +45,7 @@ export default function HomePage() {
   return (
     <BasicPageProvider fontClassName={inter.className}>
       <BasicBodyProvider header={<Header variant='landing'/>} footer={<Footer/>}>
-      body
+        <Body/>
       </BasicBodyProvider>
     </BasicPageProvider>
   );

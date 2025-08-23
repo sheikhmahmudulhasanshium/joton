@@ -9,6 +9,27 @@ import {
   LineChart,
   Settings,
   type LucideIcon,
+  HeartIcon,
+  HandHeart,
+  BrainCog,
+  Brain,
+  BoneIcon,
+  BabyIcon,
+  Popcorn,
+  PillIcon,
+  Siren,
+  EyeIcon,
+  Biohazard,
+  BrushIcon,
+  ScanFace,
+  ShowerHead,
+  LucideAngry,
+  EarIcon,
+  SlackIcon,
+  UserIcon,
+  LucideAnnoyed,
+  LucideSmile,
+  LucideCarrot,
 } from 'lucide-react';
 
 // --- TYPE AND DATA FOR THE ADMIN/HMS DASHBOARD ---
@@ -105,3 +126,23 @@ export const contactInfo = {
     appointments: { display: "+1 (800) 789-XXXX", href: "#" },
     hotline:      { number: "+1 (888) 999-XXXX", href: "#" },
 };
+
+export const departments=[
+      { title: 'Cardiology', href: '/departments/cardiology', description: 'Expert heart and vascular care.' ,icon:<HandHeart/>},
+      { title: 'Neurology', href: '/departments/neurology', description: 'Advanced treatment for brain conditions.',icon:<Brain/> },
+      { title: 'Oncology', href: '/departments/oncology', description: 'Comprehensive cancer diagnosis and treatment.',icon:<Biohazard/> },
+      { title: 'Orthopedics', href: '/departments/orthopedics', description: 'Care for bones, joints, muscles, and ligaments.' ,icon:<BoneIcon/>},
+      { title: 'Pediatrics', href: '/departments/pediatrics', description: 'Compassionate care for children of all ages.' ,icon:<BabyIcon/>},
+      { title: 'Gynecology', href: '/departments/gynecology', description: 'Specialized care for women\'s health.' ,icon:<UserIcon/>},
+      { title: 'Dermatology', href: '/departments/dermatology', description: 'Treatment for all skin-related conditions.',icon:<SlackIcon/> },
+      { title: 'Psychology', href: '/departments/psychology', description: 'Treatment for all mental healthcare.' ,icon:<LucideAngry/>},
+      { title: 'Dental', href: '/departments/dental', description: 'Treatment for all teeth conditions.',icon:<LucideSmile/> },
+      { title: 'Medicine', href: '/departments/medicine', description: 'Medicine specalists (improvise)' ,icon:<PillIcon/>},
+      { title: 'Eye', href: '/departments/eye', description: 'Eye specalists (improvise)' ,icon:<EyeIcon/>},
+      { title: 'Nose, Ear, Throat', href: '/departments/medicine', description: ' (improvise)',icon:<EarIcon/> },
+      { title: 'Dietatian', href: '/departments/medicine', description: 'Food specalists (improvise)' ,icon:<LucideCarrot/>},
+
+      { title: 'Emergency Care', href: '/departments/emergency', description: '24/7 critical care for urgent medical needs.' ,icon:<Siren/>},
+    ]
+
+    
