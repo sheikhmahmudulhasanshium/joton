@@ -36,7 +36,7 @@ const faqData = [
     question: "How do I create an account?",
     answer: (
       <p>
-        For security, this system uses an "admin-first" setup. The very first account must be an administrator, created via a special, one-time registration process. After the first admin account is created, that admin can then create other staff accounts (like doctors or receptionists) from within the application's dashboard.
+        For security, this system uses an &ldquo;admin-first&rdquo; setup. The very first account must be an administrator, created via a special, one-time registration process. After the first admin account is created, that admin can then create other staff accounts (like doctors or receptionists) from within the application&apos;s dashboard.
       </p>
     ),
   },
@@ -44,7 +44,7 @@ const faqData = [
     question: "I was redirected to a 'Create Initial Admin Account' page. Why?",
     answer: (
       <p>
-        You were redirected because the system's database is currently empty. This is the initial setup phase. The application requires that the first user be an administrator, so it automatically directs you to the secure registration page to create that account.
+        You were redirected because the system&apos;s database is currently empty. This is the initial setup phase. The application requires that the first user be an administrator, so it automatically directs you to the secure registration page to create that account.
       </p>
     ),
   },
