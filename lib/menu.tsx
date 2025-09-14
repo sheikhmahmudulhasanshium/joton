@@ -9,27 +9,20 @@ import {
   LineChart,
   Settings,
   type LucideIcon,
-  HeartIcon,
   HandHeart,
-  BrainCog,
   Brain,
-  BoneIcon,
-  BabyIcon,
-  Popcorn,
-  PillIcon,
-  Siren,
-  EyeIcon,
-  Biohazard,
-  BrushIcon,
-  ScanFace,
-  ShowerHead,
-  LucideAngry,
-  EarIcon,
-  SlackIcon,
-  UserIcon,
-  LucideAnnoyed,
-  LucideSmile,
-  LucideCarrot,
+  Ribbon,
+  Bone,
+  Baby,
+  Venus,
+  Layers,
+  BrainCircuit,
+  Smile,
+  Stethoscope,
+  Eye,
+  Ear,
+  Carrot,
+  Ambulance,
 } from 'lucide-react';
 
 // --- TYPE AND DATA FOR THE ADMIN/HMS DASHBOARD ---
@@ -126,23 +119,133 @@ export const contactInfo = {
     appointments: { display: "+1 (800) 789-XXXX", href: "#" },
     hotline:      { number: "+1 (888) 999-XXXX", href: "#" },
 };
+// In your lib/data.ts or lib/menu.ts file
 
-export const departments=[
-      { title: 'Cardiology', href: '/departments/cardiology', description: 'Expert heart and vascular care.' ,icon:<HandHeart/>},
-      { title: 'Neurology', href: '/departments/neurology', description: 'Advanced treatment for brain conditions.',icon:<Brain/> },
-      { title: 'Oncology', href: '/departments/oncology', description: 'Comprehensive cancer diagnosis and treatment.',icon:<Biohazard/> },
-      { title: 'Orthopedics', href: '/departments/orthopedics', description: 'Care for bones, joints, muscles, and ligaments.' ,icon:<BoneIcon/>},
-      { title: 'Pediatrics', href: '/departments/pediatrics', description: 'Compassionate care for children of all ages.' ,icon:<BabyIcon/>},
-      { title: 'Gynecology', href: '/departments/gynecology', description: 'Specialized care for women\'s health.' ,icon:<UserIcon/>},
-      { title: 'Dermatology', href: '/departments/dermatology', description: 'Treatment for all skin-related conditions.',icon:<SlackIcon/> },
-      { title: 'Psychology', href: '/departments/psychology', description: 'Treatment for all mental healthcare.' ,icon:<LucideAngry/>},
-      { title: 'Dental', href: '/departments/dental', description: 'Treatment for all teeth conditions.',icon:<LucideSmile/> },
-      { title: 'Medicine', href: '/departments/medicine', description: 'Medicine specalists (improvise)' ,icon:<PillIcon/>},
-      { title: 'Eye', href: '/departments/eye', description: 'Eye specalists (improvise)' ,icon:<EyeIcon/>},
-      { title: 'Nose, Ear, Throat', href: '/departments/medicine', description: ' (improvise)',icon:<EarIcon/> },
-      { title: 'Dietatian', href: '/departments/medicine', description: 'Food specalists (improvise)' ,icon:<LucideCarrot/>},
-
-      { title: 'Emergency Care', href: '/departments/emergency', description: '24/7 critical care for urgent medical needs.' ,icon:<Siren/>},
-    ]
-
-    
+export const departments = [
+  { 
+    id: 'dept-cardiology',
+    title: 'Cardiology', 
+    href: '/departments/cardiology', 
+    description: 'Expert care for your heart and vascular system, from prevention to complex interventions.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/cardiology.jpg',
+    icon: <HandHeart />,
+    patient_services: ['ECG & Echocardiogram', 'Coronary Angioplasty', 'Heart Failure Management', 'Rhythm Disorder Treatment']
+  },
+  { 
+    id: 'dept-neurology',
+    title: 'Neurology', 
+    href: '/departments/neurology', 
+    description: 'Advanced diagnosis and treatment for brain, spine, and nervous system conditions.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/neurology.jpg',
+    icon: <Brain />,
+    patient_services: ['Stroke Care', 'Epilepsy & Seizure Management', 'Headache & Migraine Clinics', 'Memory Disorders']
+  },
+  { 
+    id: 'dept-oncology',
+    title: 'Oncology', 
+    href: '/departments/oncology', 
+    description: 'Comprehensive and compassionate cancer diagnosis, treatment, and survivorship care.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/oncology.jpg',
+    icon: <Ribbon />,
+    patient_services: ['Chemotherapy & Immunotherapy', 'Radiation Oncology', 'Surgical Oncology', 'Genetic Counseling']
+  },
+  { 
+    id: 'dept-orthopedics',
+    title: 'Orthopedics', 
+    href: '/departments/orthopedics', 
+    description: 'Specialized care for bones, joints, muscles, and ligaments to restore mobility.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/orthopedics.jpg',
+    icon: <Bone />,
+    patient_services: ['Joint Replacement Surgery', 'Sports Medicine', 'Fracture & Trauma Care', 'Spine Surgery']
+  },
+  { 
+    id: 'dept-pediatrics',
+    title: 'Pediatrics', 
+    href: '/departments/pediatrics', 
+    description: 'Compassionate and comprehensive medical care for infants, children, and adolescents.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/pediatrics.jpg',
+    icon: <Baby />,
+    patient_services: ['Well-Child Visits & Immunizations', 'Adolescent Medicine', 'Developmental Screening', 'Acute Illness Care']
+  },
+  { 
+    id: 'dept-gynecology',
+    title: 'Gynecology', 
+    href: '/departments/gynecology', 
+    description: 'Dedicated and specialized care for all aspects of women\'s reproductive health.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/gynecology.jpg',
+    icon: <Venus />,
+    patient_services: ['Annual Wellness Exams', 'Maternity & Obstetric Care', 'Menopause Management', 'Family Planning']
+  },
+  { 
+    id: 'dept-dermatology',
+    title: 'Dermatology', 
+    href: '/departments/dermatology', 
+    description: 'Expert treatment for all skin, hair, and nail conditions for a healthier you.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/dermatology.jpg',
+    icon: <Layers />,
+    patient_services: ['Acne & Rosacea Treatment', 'Skin Cancer Screening', 'Cosmetic Dermatology', 'Psoriasis & Eczema Care']
+  },
+  { 
+    id: 'dept-psychology',
+    title: 'Psychology', 
+    href: '/departments/psychology', 
+    description: 'Confidential and supportive mental healthcare to help you navigate life\'s challenges.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/psychology.jpg',
+    icon: <BrainCircuit />,
+    patient_services: ['Individual Therapy (CBT, DBT)', 'Couples Counseling', 'Anxiety & Depression Treatment', 'Stress Management']
+  },
+  { 
+    id: 'dept-dental',
+    title: 'Dental', 
+    href: '/departments/dental', 
+    description: 'Complete dental care for a healthy smile, from routine check-ups to advanced procedures.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/dental.jpg',
+    icon: <Smile />,
+    patient_services: ['Preventive Cleanings & Exams', 'Cosmetic Dentistry', 'Root Canal Therapy', 'Dental Implants']
+  },
+  { 
+    id: 'dept-medicine',
+    title: 'General Medicine', 
+    href: '/departments/medicine', 
+    description: 'Primary care for adults, focusing on disease prevention and managing chronic conditions.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/medicine.jpg',
+    icon: <Stethoscope />,
+    patient_services: ['Annual Physicals', 'Diabetes Management', 'Hypertension Control', 'Preventive Health Screening']
+  },
+  { 
+    id: 'dept-ophthalmology',
+    title: 'Ophthalmology', 
+    href: '/departments/eye', 
+    description: 'Comprehensive eye care, from routine vision exams to complex surgical procedures.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/eye.jpg',
+    icon: <Eye />,
+    patient_services: ['Cataract Surgery', 'Glaucoma Treatment', 'LASIK & Vision Correction', 'Retina Services']
+  },
+  { 
+    id: 'dept-ent',
+    title: 'ENT (Otolaryngology)', 
+    href: '/departments/ent', 
+    description: 'Specialized medical and surgical care for ear, nose, and throat disorders.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/ent.jpg',
+    icon: <Ear />,
+    patient_services: ['Sinus & Allergy Care', 'Hearing Loss & Audiology', 'Sleep Apnea Treatment', 'Tonsil & Adenoid Surgery']
+  },
+  { 
+    id: 'dept-nutrition',
+    title: 'Nutrition & Dietetics', 
+    href: '/departments/nutrition', 
+    description: 'Personalized nutrition plans and guidance from registered dietitians for a healthier life.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/nutrition.jpg',
+    icon: <Carrot />,
+    patient_services: ['Weight Management', 'Medical Nutrition Therapy', 'Sports Nutrition', 'Digestive Health Plans']
+  },
+  { 
+    id: 'dept-emergency',
+    title: 'Emergency Care', 
+    href: '/departments/emergency', 
+    description: '24/7 critical care for urgent and life-threatening medical needs by expert physicians.',
+    imageUrl: 'https://raw.githubusercontent.com/adrianhajdin/hms-assets/main/images/departments/emergency.jpg',
+    icon: <Ambulance />,
+    patient_services: ['Level I Trauma Center', 'Cardiac Emergency Response', 'Stroke & Neurological Emergencies', '24/7 On-site Lab & Imaging']
+  }
+];

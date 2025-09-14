@@ -1,14 +1,21 @@
-import Image from "next/image";
+// app/(routes)/body.tsx
+'use client';
 
-const Body = () => {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-            <div className="w-10/12  bg-cover">
-            <Image src={'/jpg/Designer.jpeg'} alt="p-1" height={100} width={100} className="w-full rounded-2xl"/>
+import Image from 'next/image';
 
-            </div>
-        </div>
-      );
+export default function Body() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+      <div className="w-10/12 bg-cover">
+        <Image
+          src={'/jpg/Designer.jpeg'}
+          alt="A modern and clean hospital reception area"
+          height={800}
+          width={1200}
+          className="w-full h-auto rounded-2xl"
+          priority
+        />
+      </div>
+    </div>
+  );
 }
- 
-export default Body;
