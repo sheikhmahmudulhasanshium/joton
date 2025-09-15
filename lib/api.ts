@@ -3,13 +3,9 @@
 import axios from 'axios';
 import { type LoginDto } from './types';
 
-// --- THIS IS THE FIX ---
-// 1. Get the base URL from the environment variable.
 const backendUrl = (process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001')
-  // 2. Defensively remove any trailing slash to prevent the double-slash issue.
   .replace(/\/$/, '');
 
-// 3. Construct the final, clean API URL.
 const API_URL = `${backendUrl}/api/v1`;
 
 const api = axios.create({
@@ -17,7 +13,7 @@ const api = axios.create({
   withCredentials: true,
 });
 
-// --- API FUNCTIONS (No other changes needed below) ---
+// --- API FUNCTIONS ---
 
 export const checkBackendStatus = () => api.get('/status');
 export const getSystemStatus = () => api.get('/system/status');
@@ -28,5 +24,11 @@ export const loginUser = (credentials: LoginDto) =>
 export const logoutUser = () => api.post('/auth/logout');
 export const registerAdmin = (data: unknown) =>
   api.post('/auth/register-admin', data);
+
+// --- NEW FUNCTIONS ---
+export const createStaff = (data: unknown) => api.post('/staff', data);
+export const createPatient = (data: unknown) => api.post('/patients/register', data);
+// --- ADD THIS NEW FUNCTION ---
+export const findStaffById = (staffId: string) => api.get(`/staff/search-by-id/${staffId}`);
 
 export default api;

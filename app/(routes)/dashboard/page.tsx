@@ -6,6 +6,9 @@ import BasicPageProvider from '../../components/providers/basic-page-provider';
 import BasicBodyProvider from '../../components/providers/basic-body-provider';
 import { Header } from '@/app/components/common/header';
 import Footer from '@/app/components/common/footer';
+import { Button } from '@/components/ui/button';
+import { UserPlusIcon } from 'lucide-react';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -46,7 +49,11 @@ export default function HomePage() {
   return (
     <BasicPageProvider fontClassName={inter.className}>
       <BasicBodyProvider header={<Header variant='admin'/>} footer={<Footer/>}>
-      body
+      
+        <div>
+          <Link href={'/register/new'} className='m-4 flex justify-end'>
+          <Button >Add User <UserPlusIcon/></Button></Link>
+        </div>
       </BasicBodyProvider>
     </BasicPageProvider>
   );
