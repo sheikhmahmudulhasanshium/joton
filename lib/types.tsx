@@ -64,3 +64,32 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+
+// lib/blood-data.ts
+
+export type BloodType = 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
+
+export const bloodTypes: BloodType[] = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+
+export const donationRules: Record<BloodType, BloodType[]> = {
+  'A+': ['A+', 'AB+'],
+  'A-': ['A+', 'A-', 'AB+', 'AB-'],
+  'B+': ['B+', 'AB+'],
+  'B-': ['B+', 'B-', 'AB+', 'AB-'],
+  'AB+': ['AB+'],
+  'AB-': ['AB+', 'AB-'],
+  'O+': ['A+', 'B+', 'AB+', 'O+'],
+  'O-': [...bloodTypes], // O- can donate to all
+};
+
+export const receptionRules: Record<BloodType, BloodType[]> = {
+  'A+': ['A+', 'A-', 'O+', 'O-'],
+  'A-': ['A-', 'O-'],
+  'B+': ['B+', 'B-', 'O+', 'O-'],
+  'B-': ['B-', 'O-'],
+  'AB+': [...bloodTypes], // AB+ can receive from all
+  'AB-': ['A-', 'B-', 'AB-', 'O-'],
+  'O+': ['O+', 'O-'],
+  'O-': ['O-'],
+};
+
